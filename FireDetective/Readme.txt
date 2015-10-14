@@ -1,0 +1,188 @@
+=========================================================================================
+FireDetective, version 0.1.
+=========================================================================================
+
+Use FireDetective and its source code at your own risk.
+Read this document before using FireDetective.
+
+Important note: the FireDetective Firefox add-on (part of FireDetective) may 
+open security holes in Firefox when enabled. When the add-on is enabled, you 
+should only visit web sites that are safe.
+
+-----------------------------------------------------------------------------------------
+About FireDetective
+-----------------------------------------------------------------------------------------
+
+I built FireDetective in the summer of 2009 at the University of Victoria as a part of my 
+MSc project, entitled “Understanding Ajax Applications by using Trace Analysis”. 
+FireDetective is a research tool aimed at making the inner workings of web/Ajax applications 
+easier to understand. It records browser activity and JavaScript executions, as well as 
+server side (Java EE) executions and displays this information in a combined way to the 
+user, in real-time.
+
+Feel free to use FireDetective and its source code in any way you’d like. One thing: if 
+you do end up using (parts of) it in another project I’d appreciate it if you'd mention me.
+
+Thanks!
+
+Nick Matthijssen
+March 3rd, 2010
+
+Contact me at: nick8maal@gmail.com
+
+-----------------------------------------------------------------------------------------
+Notes/disclaimer
+-----------------------------------------------------------------------------------------
+
+Note 1: the FireDetective Firefox add-on (part of FireDetective) may open security 
+holes in Firefox when enabled. When the add-on is enabled, you should only visit web 
+sites that are safe.
+
+Note 2: FireDetective in its current form is a prototype: it's a research tool 
+which I used in a user study in a controlled lab setting. It was developed within a 
+limited time frame, and I focused on getting the tool ready for the study rather than 
+tool/code polish. Hence, currently it has quite a few technical limitations. 
+For example, web applications using iframes, all kinds of JavaScript "hacks", or highly 
+JavaScript-intensive web applications may not work properly. Also, the use of multiple 
+tabs, the search box, etc. in Firefox is unsupported and will probably cause the tool to 
+crash or malfunction. The exceptions/crashes that you might encounter are often "by
+design", i.e. rather that catching and ignoring the exception, the application stops,
+allowing to potentially fix the issues in the future.
+
+Note 3: FireDetective may be incompatible with some other Firefox add-ons, such as 
+FireBug. All of these add-ons should probably be disabled for FireDetective to function 
+correctly.
+
+Note 4: FireDetective currently runs on Windows only. It’s been tested on XP, Vista and 
+Windows 7. It requires the .NET 3.5 framework to be installed.
+
+-----------------------------------------------------------------------------------------
+Installation steps
+-----------------------------------------------------------------------------------------
+
+1.	Extract contents of FireDetective.zip to a new directory. In the rest of this 
+	document, we’ll refer to the full pathname of this directory as FD (e.g. FD could 
+	be “C:\Users\Nick\FireDetective”).
+
+2.	Make sure Firefox is installed. It has to be installed in either “C:\Program 
+	Files\Mozilla Firefox” or “C:\Program Files (x86)\Mozilla Firefox”. If not, 
+	manually edit line 7 of FD\FireDetectiveAddOn\chrome\content\debugservice.js
+	and change it to reflect the correct pathname.
+
+	a.	Go to the “%APPDATA%\Mozilla\Firefox\Profiles\[random letter 
+		combination dot default folder]\extensions” folder.
+	b.	Create an empty file called firedetective@thechiselgroup.com (note the 
+		.com extension).
+	c.	Open the file with a text editor and put the full path to the FireDetective 
+		add-on. Firefox requires you to only use backslashes as path-delimiters, 
+		also, append a trailing backslash. Example: FD\FireDetectiveAddOn\ 
+		Make sure to get rid of trailing and leading whitespace around the full 
+		path name, and the file should only contain one line. Save the file.
+	d.	Launch Firefox and make sure that the FireDetective toolbar appears. 
+		Right now it should say: “Trace consumer not connected”.
+	e.	Navigate to about:config, and manually set the property 
+		“network.http.use-cache” to false.
+	f.	Disable any other Firefox add-ons you might have installed, and restart 
+		Firefox.
+
+3.	From this point on you should already be able to use FireDetective (see step 6). 
+	However, server tracing will not be enabled.
+
+4.	Install latest Java EE5 SDK (EE6 has not been tested) from Sun.
+
+	a.	Go to the path where you installed it, go to domains\[domain folder, e.g. 
+		domain1]\config.
+	b.	Open domain.xml. Find the place where all the <jvm-options> tags are.
+	c.	Before the first <jvm-options> tag, add a new tag: 
+		<jvm-options>-agentlib:FD\FireDetectiveJavaTracer\Release\FireDetectiveJavaTracer</jvm-options>
+		where FD is the path to FireDetective.
+	d.	Start the server. 
+
+5.	Start Eclipse (tested on Eclipse Galileo).
+
+	a.	Import the ShoppingList demo application (can be found in 
+		FD\ShoppingList).
+	b.	Deploy the application to the GlassFish Java EE server by clicking run. 
+		You might need to download the GlassFish adapter for this.
+
+6.	Running FireDetective.
+	
+	a.	Make sure the GlassFish Java EE server is running.
+	b.	Launch Firefox (if not already running).
+	c.	Navigate to about:blank and close all other tabs/instances (important!!).
+	d.	Launch FireDetectiveAnalyzer.exe (in 
+		FD\FireDetectiveAnalyzer\bin\Release, make sure this folder is the 
+		working directory).
+	e.	In the top-right corner of the screen, it should say “Firefox connected” 
+		and “Server connected”. In Firefox, the toolbar should say “Trace 
+		consumer connected”.
+	f.	In Firefox, navigate to the web application (e.g. 
+		http://localhost:8080/ShoppingList/) and use it.
+	g.	At any point, you can now switch to FireDetective and look “under the 
+		hood” of the web application. The analysis is real-time, so you can switch 
+		back and forth (a dual monitor set up, with FireDetective on one screen 
+		and Firefox on the other works well).
+
+Final note: if the tool crashes or locks up, just close Firefox and FireDetective and 
+try again from step 6a. This usually fixes the problem. The server does not usually need 
+to be restarted, although it might be a good thing to try if the previous solution does 
+not work.
+
+-----------------------------------------------------------------------------------------
+Analyzing other web applications
+-----------------------------------------------------------------------------------------
+
+You can also use FireDetective to analyze other web applications. For analyzing client 
+side code, no additional configuration is needed: just visit the web application in 
+Firefox. Below are the necessary server side configuration steps.
+
+1.	Adding the trace filter to your web applications.
+
+	a.	Copy the com directory from FD\ FireDetectiveJavaTracerFilter into the 
+		project’s source directory. In Eclipse, the com.thechiselgroup.firedetective 
+		package should show up, containing three java files.
+	b.	Edit the web.xml in the WEB-INF folder with a text editor. Add the 
+		following tags as child elements between the <web-app ...> and </web-
+		app> tags. Make sure they are the first filter and filter-mapping that are 
+		defined in the file. 
+
+		<filter>
+		<filter-name>TraceFilter</filter-name>
+		<filter-class>com.thechiselgroup.firedetective.TraceFilter</filter-class>
+		</filter>
+
+		<filter-mapping>
+		<filter-name>TraceFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+		</filter-mapping>
+
+	c.	Deploy the project to the GlassFish server.
+
+2.	Recompiling the server side Java tracer.
+
+	a.	[Alternatively, if you do not want to recompile, you can temporally put 
+		your web application in the com.thechiselgroup package, and continue 
+		with step 3. Otherwise, follow the next steps.]
+	b.	Stop GlassFish Java EE server.
+	c.	The set of Java packages that the server tracer records information about 
+		is currently hardcoded in the tracer DLL file (yup, room for 
+		improvement here :-). This DLL needs to be rebuilt. For this you will need 
+		a C++ compiler (we used Visual C++ 2008) and a JDK set up (for the JNI 
+		headers).
+	d.	Open FD\FireDetectiveJavaTracer\FireDetectiveJavaTracer.vcproj.  
+		Modify FD\FireDetectiveJavaTracer\method.cpp, line 46. The string 
+		should be changed into your web application’s package name.
+	e.	Recompile the DLL (might need to update include directories in project 
+		properties window).
+	f.	Start GlassFish Java EE Server, make sure everything still works.
+
+3.	Final steps!
+
+	a.	Open FD\FireDetectiveAnalyzer\bin\Release\settings.ini.
+	b.	On the first line, specify the path to the src folder of the web project.
+	c.	On the second line, specify the full path to the web folder of the web 
+		project which contains the jsp files of the project.
+	d.	Save the file.
+
+4.	Start analysis (previous section, step 6).
+

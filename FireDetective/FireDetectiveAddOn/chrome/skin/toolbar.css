@@ -1,0 +1,57 @@
+#firedetective_start_button {
+  list-style-image: url("chrome://firedetective/skin/start_small.png");
+}
+
+toolbarbutton[disabled="true"]#firedetective_start_button {
+  list-style-image: url("chrome://firedetective/skin/start_small_disabled.png");
+}
+
+#firedetective_stop_button {
+  list-style-image: url("chrome://firedetective/skin/stop_small.png");
+}
+
+toolbarbutton[disabled="true"]#firedetective_stop_button {
+  list-style-image: url("chrome://firedetective/skin/stop_small_disabled.png");
+}
+
+#firedetective_rename_button {
+  list-style-image: url("chrome://firedetective/skin/rename_small.png");
+}
+
+toolbarbutton[disabled="true"]#firedetective_rename_button {
+  list-style-image: url("chrome://firedetective/skin/rename_small_disabled.png");
+}
+
+#firedetective_open_button {
+  list-style-image: url("chrome://firedetective/skin/open_small.png");
+}
+
+toolbarbutton[disabled="true"]#firedetective_open_button {
+  list-style-image: url("chrome://firedetective/skin/open_small_disabled.png");
+}
+
+#firedetective_open_folder_button {
+  list-style-image: url("chrome://firedetective/skin/open_folder_small.png");
+}
+
+toolbarbutton[disabled="true"]#firedetective_open_folder_button {
+  list-style-image: url("chrome://firedetective/skin/open_folder_small_disabled.png");
+}
+
+#firedetective_connect_server_button {
+  list-style-image: url("chrome://firedetective/skin/connect_server_small.png");
+}
+
+toolbarbutton[disabled="true"]#firedetective_connect_server_button {
+  list-style-image: url("chrome://firedetective/skin/connect_server_small_disabled.png");
+}
+
+#firedetective_message_label {
+  background-color: #404040;
+  color: white;
+  padding: 3px;
+}
+
+label[errorflag='true']#firedetective_message_label {
+  color: #ff8080;
+}

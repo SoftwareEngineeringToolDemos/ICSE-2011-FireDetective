@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://firedetective/skin/toolbar.css" type="text/css"?>
+
+<overlay id="firedetective_overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+ <script type="application/x-javascript" src="chrome://firedetective/content/common.js" />
+ <script type="application/x-javascript" src="chrome://firedetective/content/logfile.js" />
+ <script type="application/x-javascript" src="chrome://firedetective/content/traceprovider.js" />
+ <script type="application/x-javascript" src="chrome://firedetective/content/gui.js" />
+ <script type="application/x-javascript" src="chrome://firedetective/content/debugservice.js" />
+ <script type="application/x-javascript" src="chrome://firedetective/content/htmltransform.js" />
+ <script type="application/x-javascript" src="chrome://firedetective/content/networkspy.js" />
+ <script type="application/x-javascript" src="chrome://firedetective/content/loggers.js" />
+ <script type="application/x-javascript" src="chrome://firedetective/content/main.js" />
+
+ <toolbox id="navigator-toolbox">
+  <toolbar id="firedetective_toolbar" mode="full" iconsize="small" class="chromeclass-directories">
+   <toolbarbutton id="firedetective_start_button" class="toolbarbutton-1" label="Begin mark" tooltiptext="Begin a (new) marked section" oncommand="firedetective_start_button_click();" disabled='true' />
+   <toolbarbutton id="firedetective_stop_button" class="toolbarbutton-1" label="End mark" tooltiptext="End the marked section" oncommand="firedetective_stop_button_click();" disabled='true'/>
+   <box align="center" id="firedetective_message_label_box">
+    <label id="firedetective_message_label" value="Trace consumer not connected." minwidth="250" errorflag='true' />
+   </box>
+  </toolbar>
+ </toolbox>
+
+ <statusbar id="status-bar">
+  <statusbarpanel id="firedetective_panel" label="FireDetective is enabled." />
+ </statusbar>
+
+</overlay> 

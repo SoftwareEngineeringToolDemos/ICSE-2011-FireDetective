@@ -1,0 +1,7 @@
+content    firedetective    chrome/content/
+skin    firedetective    classic/1.0    chrome/skin/
+
+overlay chrome://browser/content/browser.xul chrome://firedetective/content/main.xul
+style chrome://global/content/customizeToolbar.xul chrome://firedetective/skin/toolbar.css
+
+

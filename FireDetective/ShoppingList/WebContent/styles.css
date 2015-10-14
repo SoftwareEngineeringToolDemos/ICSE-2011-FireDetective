@@ -1,0 +1,46 @@
+@CHARSET "ISO-8859-1";
+
+body
+{
+	font-family: Cambria;	
+}
+
+input
+{
+	font-family: Cambria;	
+}
+
+h1
+{
+	font-family: Calibri;
+}
+
+div.name-cell
+{
+	float: left;
+	width: 250px;
+}
+
+a:visited
+{
+	color: #0000ff;
+}
+	
+div.price-cell
+{
+	float: left;
+	width: 150px;
+}
+
+div.mainframe
+{
+	margin: 100px;
+	width: 500px;
+}
+	
+div.backdrop
+{
+	padding: 50px;
+	background-color: #ffffc0;
+}
+

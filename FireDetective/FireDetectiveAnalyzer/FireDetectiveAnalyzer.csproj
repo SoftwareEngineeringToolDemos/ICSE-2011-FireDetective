@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AC55FE3D-21E1-431B-B61C-D542CFADED20}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FireDetectiveAnalyzer</RootNamespace>
+    <AssemblyName>FireDetectiveAnalyzer</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ApplicationIcon>main.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CodeView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CodeView.designer.cs">
+      <DependentUpon>CodeView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CodeViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CodeViewer.Designer.cs">
+      <DependentUpon>CodeViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Firefox\Call.cs" />
+    <Compile Include="Firefox\ContentItem.cs" />
+    <Compile Include="Firefox\Event.cs" />
+    <Compile Include="Firefox\FirefoxEventProcessor.cs" />
+    <Compile Include="Firefox\HtmlDocument.cs" />
+    <Compile Include="Firefox\HtmlTokenStream.cs" />
+    <Compile Include="Firefox\IntervalTimeout.cs" />
+    <Compile Include="Firefox\JavaScriptBlock.cs" />
+    <Compile Include="Firefox\JavaScriptDocument.cs" />
+    <Compile Include="Firefox\JavaScriptTokenStream.cs" />
+    <Compile Include="Firefox\PageRequest.cs" />
+    <Compile Include="Firefox\Script.cs" />
+    <Compile Include="Firefox\ScriptResolver.cs" />
+    <Compile Include="Firefox\Section.cs" />
+    <Compile Include="Firefox\SimpleUri.cs" />
+    <Compile Include="Firefox\TopLevelCall.cs" />
+    <Compile Include="Firefox\Xhr.cs" />
+    <Compile Include="HoverableTreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HoverableTreeView.designer.cs">
+      <DependentUpon>HoverableTreeView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ItemsTreeView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Java\Call.cs" />
+    <Compile Include="Java\JavaDocument.cs" />
+    <Compile Include="Java\JavaEventProcessor.cs" />
+    <Compile Include="Java\JavaFile.cs" />
+    <Compile Include="Java\JavaMethodBlock.cs" />
+    <Compile Include="Java\JavaTokenStream.cs" />
+    <Compile Include="Java\JavaWorkspace.cs" />
+    <Compile Include="Java\JspDocument.cs" />
+    <Compile Include="Java\JspTokenStream.cs" />
+    <Compile Include="Java\Method.cs" />
+    <Compile Include="Java\TopLevelTrace.cs" />
+    <Compile Include="ListExtensions.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MemoryStream.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CodeView.resx">
+      <DependentUpon>CodeView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CodeViewer.resx">
+      <DependentUpon>CodeViewer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="StringExtensions.cs" />
+    <Compile Include="StringMessageStream.cs" />
+    <Compile Include="TextDocument.cs" />
+    <Compile Include="TextStream.cs" />
+    <Compile Include="TraceProviderConnection.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="main.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
