@@ -1,4 +1,4 @@
-# ICSE-2013-Seahawk
+# ICSE-2011-FireDetective
 
 This repository contains information related to the tool FireDetective presented in the Proceedings of the 2011 International Conference on Software Engineering. The tool was originally presented in [this paper](http://dl.acm.org/citation.cfm?id=1985793.1985973&coll=DL&dl=GUIDE).
 
