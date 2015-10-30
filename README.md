@@ -7,7 +7,7 @@ This repository _is not_ the original repository for this tool. Here are some li
 * [A Video of the Tool](https://www.youtube.com/watch?v=Trp82FNBeEU)
 
 In this repository for FireDetective, you will find:
-* :white_check_mark: Source code (available)
+* :white_check_mark: [Source code](https://github.com/SoftwareEngineeringToolDemos/ICSE-2011-FireDetective/tree/master/FireDetective/FireDetectiveAnalyzer) (available)
 * :white_check_mark: [The original tool](https://github.com/SoftwareEngineeringToolDemos/ICSE-2011-FireDetective/tree/master/FireDetective) (available)
 
 This repository was constructed by [Yogesh Nandakumar](https://github.com/ynandak) under the supervision of [Emerson Murphy-Hill](https://github.com/CaptainEmerson). 
