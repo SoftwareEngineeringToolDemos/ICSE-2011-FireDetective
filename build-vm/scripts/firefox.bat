@@ -1,0 +1,1 @@
+%ALLUSERSPROFILE%\chocolatey\bin\choco install firefox -y
