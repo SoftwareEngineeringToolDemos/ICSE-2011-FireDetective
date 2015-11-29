@@ -15,3 +15,8 @@ Mozilla Firefox is free for use under the terms of the Mozilla Public License (w
 3. 7zip:
 
 7zip is free to use under the GNU LGPL license, except for 7z.dll, which is additionally covered by the unRAR restriction. More information can be found at (http://www.7-zip.org/license.txt).
+
+
+4. Java EE 5 SDK
+
+Java EE 5 is available under the Oracle Binary Code License Agreement for Java EE Technologies (http://download.oracle.com/otn-pub/java/licenses/OTN_JavaEE_Legacy_Binary-Code-License_30Jan2012.txt?AuthParam=1448771527_10fab06692d97b63751e42b0f7f11d01).
