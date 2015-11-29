@@ -20,7 +20,7 @@ set PWS=@powershell -ExecutionPolicy Bypass -NoLogo -NonInteractive -NoProfile
 
 %PWS% -Command "$ws = New-Object -ComObject WScript.Shell; $s = $ws.CreateShortcut(%SHORTCUT%); $S.TargetPath = %TARGET%; $S.Save()"
 
-C:\Program Files\Mozilla Firefox\firefox.exe
+"C:\Program Files\Mozilla Firefox\firefox.exe"
 
 echo Installing addon
 
