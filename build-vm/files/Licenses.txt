@@ -1,0 +1,10 @@
+This file contains licenses for software installed on this system.
+
+1. Process Analysis Toolkit.
+
+The Process Analysis Toolkit binaries are feely available for download and redistribution from their website http://pat.sce.ntu.edu.sg/.
+
+
+2. Microsoft .NET Framework 4.0
+
+The .Net Framework 4.0 is available for redistribution under the terms of the Microsoft .NET Framework Redistributable EULA found at https://msdn.microsoft.com/en-us/library/ms994405.aspx.
