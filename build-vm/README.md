@@ -17,6 +17,9 @@ The following software are installed onto a Windows 7 box:
 
 1. [Chocolatey](https://chocolatey.org/), a package manager for Windows
 2. [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new/)
+3. [7zip](http://www.7-zip.org/)
+4. [The FireDetective Plug-in](http://swerl.tudelft.nl/bin/view/Main/FireDetective)
+5. [Java EE5 SDK](http://www.oracle.com/technetwork/java/javaee/overview/index.html)
 
 #### Windows Box
 
@@ -24,3 +27,10 @@ The box image used is a Windows 7 32-bit image from [modernIE/w7-ie11](https://a
 
 * Username: IEUser
 * Password: Passw0rd!
+
+#### References
+
+* [Microsoft MSIExec documentation](https://technet.microsoft.com/en-us/library/cc759262%28v=ws.10%29.aspx)
+* [3 ways to download files with PowerShell](https://blog.jourdant.me/3-ways-to-download-files-with-powershell/)
+* [Vagrant Provision Reboot Plugin](https://github.com/exratione/vagrant-provision-reboot)
+* [Making a shortcut with CMD](http://superuser.com/questions/392061/how-to-make-a-shortcut-from-cmd)
