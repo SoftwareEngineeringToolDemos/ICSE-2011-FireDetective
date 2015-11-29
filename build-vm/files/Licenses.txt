@@ -1,10 +1,17 @@
 This file contains licenses for software installed on this system.
 
-1. Process Analysis Toolkit.
+1. FireDetective
 
-The Process Analysis Toolkit binaries are feely available for download and redistribution from their website http://pat.sce.ntu.edu.sg/.
+FireDetective and its source code are free for use and redistribution. According to its author Nick Matthijssen (Source: FireDetective Readme):
+
+"Feel free to use FireDetective and its source code in any way you’d like. One thing: if you do end up using (parts of) it in another project I’d appreciate it if you'd mention me."
 
 
-2. Microsoft .NET Framework 4.0
+2. Mozilla Firefox
 
-The .Net Framework 4.0 is available for redistribution under the terms of the Microsoft .NET Framework Redistributable EULA found at https://msdn.microsoft.com/en-us/library/ms994405.aspx.
+Mozilla Firefox is free for use under the terms of the Mozilla Public License (which can be found at https://www.mozilla.org/en-US/MPL/2.0/).
+
+
+3. 7zip:
+
+7zip is free to use under the GNU LGPL license, except for 7z.dll, which is additionally covered by the unRAR restriction. More information can be found at (http://www.7-zip.org/license.txt).

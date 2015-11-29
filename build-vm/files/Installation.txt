@@ -1,27 +1,159 @@
-The latest version of Process Analysis Toolkit can be downloaded from the official website at http://pat.comp.nus.edu.sg/?page_id=2587. An account will need to be created to download from the website. 
+FireDetective Installation Steps(Source - FireDetective ReadMe)
 
+-----------------------------------------------------------------------------------------
+Notes/disclaimer
+-----------------------------------------------------------------------------------------
 
-Installation instructions (taken from the official website - http://pat.comp.nus.edu.sg/?page_id=2587):
+Note 1: the FireDetective Firefox add-on (part of FireDetective) may open security 
+holes in Firefox when enabled. When the add-on is enabled, you should only visit web 
+sites that are safe.
 
-1. Installing PAT 3.x in Windows XP, Vista and Windows Server 2000/2003, Windows 7:
+Note 2: FireDetective in its current form is a prototype: it's a research tool 
+which I used in a user study in a controlled lab setting. It was developed within a 
+limited time frame, and I focused on getting the tool ready for the study rather than 
+tool/code polish. Hence, currently it has quite a few technical limitations. 
+For example, web applications using iframes, all kinds of JavaScript "hacks", or highly 
+JavaScript-intensive web applications may not work properly. Also, the use of multiple 
+tabs, the search box, etc. in Firefox is unsupported and will probably cause the tool to 
+crash or malfunction. The exceptions/crashes that you might encounter are often "by
+design", i.e. rather that catching and ignoring the exception, the application stops,
+allowing to potentially fix the issues in the future.
 
-Installing PAT is easy: run the setup file and follow the steps in the installation wizard. The following are the system requirements:
+Note 3: FireDetective may be incompatible with some other Firefox add-ons, such as 
+FireBug. All of these add-ons should probably be disabled for FireDetective to function 
+correctly.
 
-* Windows Operating System: Windows XP, Windows 7, Windows 8 and Windows Server 2000/2003.
-* .NET Framework 4.0 is needed to run PAT.
+Note 4: FireDetective currently runs on Windows only. It’s been tested on XP, Vista and 
+Windows 7. It requires the .NET 3.5 framework to be installed.
 
+-----------------------------------------------------------------------------------------
+Installation steps
+-----------------------------------------------------------------------------------------
 
-2. Installing PAT 3.x in Linux, Unix, Mac OS or more - please follow these steps:
+1.	Extract contents of FireDetective.zip to a new directory. In the rest of this 
+	document, we’ll refer to the full pathname of this directory as FD (e.g. FD could 
+	be “C:\Users\Nick\FireDetective”).
 
-* You should install the tool 'Mono' in your system - it is freely available. Please download from (http://www.mono-project.com/download/) according to your OS. Note that libmono-winforms2.0-cil (plus its dependencies) may need be added in order to run PAT under Linux (Ubuntu).
+2.	Make sure Firefox is installed. It has to be installed in either “C:\Program 
+	Files\Mozilla Firefox” or “C:\Program Files (x86)\Mozilla Firefox”. If not, 
+	manually edit line 7 of FD\FireDetectiveAddOn\chrome\content\debugservice.js
+	and change it to reflect the correct pathname.
 
-* Download PAT 3.x. But choose the directly executable version to be downloaded to some place in your computer.
+	a.	Go to the “%APPDATA%\Mozilla\Firefox\Profiles\[random letter 
+		combination dot default folder]\extensions” folder.
+	b.	Create an empty file called firedetective@thechiselgroup.com (note the 
+		.com extension).
+	c.	Open the file with a text editor and put the full path to the FireDetective 
+		add-on. Firefox requires you to only use backslashes as path-delimiters, 
+		also, append a trailing backslash. Example: FD\FireDetectiveAddOn\ 
+		Make sure to get rid of trailing and leading whitespace around the full 
+		path name, and the file should only contain one line. Save the file.
+	d.	Launch Firefox and make sure that the FireDetective toolbar appears. 
+		Right now it should say: “Trace consumer not connected”.
+	e.	Navigate to about:config, and manually set the property 
+		“network.http.use-cache” to false.
+	f.	Disable any other Firefox add-ons you might have installed, and restart 
+		Firefox.
 
-* In your computer, start the terminal application, use the command cd to change to the directory where you put “PAT 3.exe”;
-    
-* Type the command mono “PAT 3.exe” into terminal.(You might need to add execute permission as chmod +x “./PAT 3.exe”) Bingo! You will see the GUI of our PAT.
+3.	From this point on you should already be able to use FireDetective (see step 6). 
+	However, server tracing will not be enabled.
 
-* Currently the latest mono 2.10.x has some problem on Mac, if you meet some error related to winforms, please use the mono-2.6.7 which is available at (http://www.mono-project.com/docs/about-mono/releases/2.6.7/).
+4.	Install latest Java EE5 SDK (EE6 has not been tested) from Sun.
 
-Note: PAT runs faster in Windows than other OS. The reason for this is that mono is not as fast as native .NET framework.
+	a.	Go to the path where you installed it, go to domains\[domain folder, e.g. 
+		domain1]\config.
+	b.	Open domain.xml. Find the place where all the <jvm-options> tags are.
+	c.	Before the first <jvm-options> tag, add a new tag: 
+		<jvm-options>-agentlib:FD\FireDetectiveJavaTracer\Release\FireDetectiveJavaTracer</jvm-options>
+		where FD is the path to FireDetective.
+	d.	Start the server. 
+
+5.	Start Eclipse (tested on Eclipse Galileo).
+
+	a.	Import the ShoppingList demo application (can be found in 
+		FD\ShoppingList).
+	b.	Deploy the application to the GlassFish Java EE server by clicking run. 
+		You might need to download the GlassFish adapter for this.
+
+6.	Running FireDetective.
+	
+	a.	Make sure the GlassFish Java EE server is running.
+	b.	Launch Firefox (if not already running).
+	c.	Navigate to about:blank and close all other tabs/instances (important!!).
+	d.	Launch FireDetectiveAnalyzer.exe (in 
+		FD\FireDetectiveAnalyzer\bin\Release, make sure this folder is the 
+		working directory).
+	e.	In the top-right corner of the screen, it should say “Firefox connected” 
+		and “Server connected”. In Firefox, the toolbar should say “Trace 
+		consumer connected”.
+	f.	In Firefox, navigate to the web application (e.g. 
+		http://localhost:8080/ShoppingList/) and use it.
+	g.	At any point, you can now switch to FireDetective and look “under the 
+		hood” of the web application. The analysis is real-time, so you can switch 
+		back and forth (a dual monitor set up, with FireDetective on one screen 
+		and Firefox on the other works well).
+
+Final note: if the tool crashes or locks up, just close Firefox and FireDetective and 
+try again from step 6a. This usually fixes the problem. The server does not usually need 
+to be restarted, although it might be a good thing to try if the previous solution does 
+not work.
+
+-----------------------------------------------------------------------------------------
+Analyzing other web applications
+-----------------------------------------------------------------------------------------
+
+You can also use FireDetective to analyze other web applications. For analyzing client 
+side code, no additional configuration is needed: just visit the web application in 
+Firefox. Below are the necessary server side configuration steps.
+
+1.	Adding the trace filter to your web applications.
+
+	a.	Copy the com directory from FD\ FireDetectiveJavaTracerFilter into the 
+		project’s source directory. In Eclipse, the com.thechiselgroup.firedetective 
+		package should show up, containing three java files.
+	b.	Edit the web.xml in the WEB-INF folder with a text editor. Add the 
+		following tags as child elements between the <web-app ...> and </web-
+		app> tags. Make sure they are the first filter and filter-mapping that are 
+		defined in the file. 
+
+		<filter>
+		<filter-name>TraceFilter</filter-name>
+		<filter-class>com.thechiselgroup.firedetective.TraceFilter</filter-class>
+		</filter>
+
+		<filter-mapping>
+		<filter-name>TraceFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+		</filter-mapping>
+
+	c.	Deploy the project to the GlassFish server.
+
+2.	Recompiling the server side Java tracer.
+
+	a.	[Alternatively, if you do not want to recompile, you can temporally put 
+		your web application in the com.thechiselgroup package, and continue 
+		with step 3. Otherwise, follow the next steps.]
+	b.	Stop GlassFish Java EE server.
+	c.	The set of Java packages that the server tracer records information about 
+		is currently hardcoded in the tracer DLL file (yup, room for 
+		improvement here :-). This DLL needs to be rebuilt. For this you will need 
+		a C++ compiler (we used Visual C++ 2008) and a JDK set up (for the JNI 
+		headers).
+	d.	Open FD\FireDetectiveJavaTracer\FireDetectiveJavaTracer.vcproj.  
+		Modify FD\FireDetectiveJavaTracer\method.cpp, line 46. The string 
+		should be changed into your web application’s package name.
+	e.	Recompile the DLL (might need to update include directories in project 
+		properties window).
+	f.	Start GlassFish Java EE Server, make sure everything still works.
+
+3.	Final steps!
+
+	a.	Open FD\FireDetectiveAnalyzer\bin\Release\settings.ini.
+	b.	On the first line, specify the path to the src folder of the web project.
+	c.	On the second line, specify the full path to the web folder of the web 
+		project which contains the jsp files of the project.
+	d.	Save the file.
+
+4.	Start analysis (previous section, step 6).
+
 
