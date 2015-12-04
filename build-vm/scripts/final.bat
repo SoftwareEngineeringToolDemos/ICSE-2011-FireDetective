@@ -39,7 +39,7 @@ set WD='C:\FireDetective\FireDetectiveAnalyzer\bin\Release'
 %PWS% -Command "$ws = New-Object -ComObject WScript.Shell; $s = $ws.CreateShortcut(%SHORTCUT%); $S.TargetPath = %TARGET%; $S.WorkingDirectory = %WD%; $S.Save()"
 
 start C:\Sun\SDK\lib\asadmin-pause.bat start-domain domain1
-timeout 90 /nobreak
+timeout 150 /nobreak
 C:\Sun\SDK\bin\asadmin deploy C:\Installer\ShoppingList.war
 
 echo Setup complete!

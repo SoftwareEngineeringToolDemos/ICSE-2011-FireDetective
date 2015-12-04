@@ -1,4 +1,4 @@
-This file contains licenses for software installed on this system.
+﻿This file contains licenses for software installed on this system.
 
 1. FireDetective
 
@@ -20,3 +20,8 @@ Mozilla Firefox is free for use under the terms of the Mozilla Public License (w
 4. Java EE 5 SDK
 
 Java EE 5 is available under the Oracle Binary Code License Agreement for Java EE Technologies (http://download.oracle.com/otn-pub/java/licenses/OTN_JavaEE_Legacy_Binary-Code-License_30Jan2012.txt?AuthParam=1448771527_10fab06692d97b63751e42b0f7f11d01).
+
+
+5. Microsoft Windows 7 Enterprise edition:
+
+The license for this edition of Microsoft Windows can be found at (C:\Windows\System32\eula.txt).
