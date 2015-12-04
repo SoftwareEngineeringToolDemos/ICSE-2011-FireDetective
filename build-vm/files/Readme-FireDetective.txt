@@ -20,6 +20,6 @@ This file contains instructions on how to use the FireDetective plugin for Mozil
 
 *Note 1: If FireDetectiveAnalyzer shows "Server not connected", or if the shopping list application does not show up at (http://localhost:8080/ShoppingList/), restart the Glassfish server using the "Stop default server" and "Start default server" icons on the desktop.
 
-*Note 2: You can host your own applications on Glassfish by deploying the application to the server using the Eclipse IDE (found at C:\eclipse\eclipse\eclipse.exe). The Eclipse installation includes the Glassfish 2.1 server adapter.
+*Note 2: You can host your own applications on Glassfish by deploying the application to the server by starting the Glassfish server (using the icon on the Desktop), opening command prompt and using the command (asadmin deploy C:\path\to\your\application\yourapplicationname.war).
 
 *Note 3: A more detailed demo video of the tool in action can be found at: https://www.youtube.com/watch?v=Trp82FNBeEU.
